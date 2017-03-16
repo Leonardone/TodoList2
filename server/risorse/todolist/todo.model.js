@@ -9,6 +9,10 @@ var todosSchema= new Schema({
     descrizione:{
         type: String,
         required: [true, "inserisci la descrizione"]
+    },
+    fatto:{
+        type:Boolean,
+        default:false
     }
 
 });
