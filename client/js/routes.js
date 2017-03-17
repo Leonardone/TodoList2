@@ -1,10 +1,10 @@
 angular.module('app').config(function($stateProvider, $urlRouterProvider ){
 
 
-$urlRouterProvider.when('/', '/ciao');
+$urlRouterProvider.when('', '/');
 $urlRouterProvider.otherwise('/');
-$stateProvider.state('/ciao', {
-    url:'/ciao',
+$stateProvider.state('/', {
+    url:'/',
     templateUrl:'/js/todo/todo.template.html',
     controller:'TodoCtrl'
 });

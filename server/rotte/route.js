@@ -6,7 +6,7 @@ module.exports=function(app, express){
 
 
     app.use(bodyparser.json());
-
+    app.use('/font-awesome', express.static(path.join(__dirname, "..", "..", "node_modules", "font-awesome")));
     app.use('/jquery', express.static(path.join(__dirname, "..", "..", "node_modules","jquery", "jquery")));
     app.use('/bootstrap', express.static(path.join(__dirname, "..", "..", "node_modules","bootstrap", "dist")));
     app.use('/angular', express.static(path.join(__dirname, "..", "..", "node_modules", "angular")));

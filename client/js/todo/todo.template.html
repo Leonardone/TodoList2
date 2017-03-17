@@ -1,1 +1,6 @@
-<h1>{{titolo}}</h1>
+<div ng-repeat="todo in lista">
+    <h1>{{todo.titolo}}</h1>
+    <h5>{{todo.descrizione}}</h5>
+    <input type="checkbox" ng-checked="todo.fatto">
+      </div>
+      <hr>
