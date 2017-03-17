@@ -11,9 +11,10 @@
 </form>
 
 
-<div ng-repeat="todo in lista">
-    <h1>{{todo.titolo}}</h1>
-    <h5>{{todo.descrizione}}</h5>
+<div ng-repeat="todo in lista | orderBy:'_id':true"> <!--true fa l'ordinamento inverso in questo caso-->
+    <h3 class="todo-{{todo.fatto}}">{{todo.titolo}}</h3>
+    <h5 class="todo-{{todo.fatto}}">{{todo.descrizione}}</h5>
+    <input type="datetime-local"  ng-model="todo.data" >    
     <input type="checkbox" ng-checked="todo.fatto" ng-model="todo.fatto" ng-change="update(todo._id, todo.fatto)">
     <button class="btn btn-danger" ng-click="elimina(todo._id)">Del</button>
       <hr>

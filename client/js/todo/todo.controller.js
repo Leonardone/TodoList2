@@ -2,9 +2,12 @@ angular.module('app').controller('TodoCtrl', function($scope, TodoSrv){
 
 
 
-$scope.lista=[];
+//$scope.lista=[]; commentato perchè usa quello scritto in ogni funzione
 TodoSrv.getTodos().then(function(data){
     $scope.lista= data;
+    $scope.lista.forEach(function(el){
+        el.data=new Date(el.data);
+    });
    
 
 });
@@ -16,6 +19,9 @@ $scope.crea = function(){
           return TodoSrv.getTodos()
          }).then(function(data){
                $scope.lista= data;
+                $scope.lista.forEach(function(el){
+                el.data=new Date(el.data);
+            });
 
           })
        
@@ -29,6 +35,9 @@ $scope.elimina=function(id){
         return TodoSrv.getTodos()
     }).then(function(data){
         $scope.lista=data;
+         $scope.lista.forEach(function(el){
+             el.data=new Date(el.data);
+    });
     });
 
 }
@@ -39,6 +48,9 @@ $scope.update=function(id, fatto){
         return TodoSrv.getTodos()
     }).then(function(data){
         $scope.lista=data;
+         $scope.lista.forEach(function(el){
+                el.data=new Date(el.data);
+         });
     });
 }
 

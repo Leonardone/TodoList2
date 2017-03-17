@@ -18,7 +18,7 @@ angular.module('app').service('TodoSrv', function($http){
     }
 
     var creaTodo= function(nuovo){
-        console.log(nuovo);
+        
         return $http({
             method: 'POST',
             url:'http://localhost:'+PORT+'/api/todolist',

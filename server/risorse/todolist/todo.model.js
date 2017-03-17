@@ -17,6 +17,7 @@ var todosSchema= new Schema({
     
      data:{
          type:Date,
+         default:Date.now
     }
 
 
@@ -24,12 +25,12 @@ var todosSchema= new Schema({
 
 
 //aggiunge la data prima di salvare
-todosSchema.pre('save', function(next){
-    if(!this.data){
-     this.data=new Date();
-    }
+// todosSchema.pre('save', function(next){
+//     if(!this.data){
+//      this.data=new Date();
+//     }
   
-    next();
-});
+//     next();
+// });
 
 module.exports= mongoose.model('Todos', todosSchema);
