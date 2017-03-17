@@ -11,6 +11,7 @@ router.post('/', Todos.createTodo);
 router.get('/', Todos.getTodos);
 
 
+router.put('/:id([0-9a-f]{24})', Todos.updateTodo);
 
 
 //cancella un todo

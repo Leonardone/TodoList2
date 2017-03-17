@@ -14,7 +14,7 @@
 <div ng-repeat="todo in lista">
     <h1>{{todo.titolo}}</h1>
     <h5>{{todo.descrizione}}</h5>
-    <input type="checkbox" ng-checked="todo.fatto">
+    <input type="checkbox" ng-checked="todo.fatto" ng-model="todo.fatto" ng-change="update(todo._id, todo.fatto)">
     <button class="btn btn-danger" ng-click="elimina(todo._id)">Del</button>
       <hr>
       </div>

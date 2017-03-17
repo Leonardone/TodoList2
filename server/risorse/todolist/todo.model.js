@@ -13,8 +13,23 @@ var todosSchema= new Schema({
     fatto:{
         type:Boolean,
         default:false
+    },
+    
+     data:{
+         type:Date,
     }
 
+
+});
+
+
+//aggiunge la data prima di salvare
+todosSchema.pre('save', function(next){
+    if(!this.data){
+     this.data=new Date();
+    }
+  
+    next();
 });
 
 module.exports= mongoose.model('Todos', todosSchema);

@@ -42,13 +42,27 @@ angular.module('app').service('TodoSrv', function($http){
         });
     }
 
+    var updateTodo = function(id, fatto){
+
+        return $http({
+            method:"PUT",
+            url:'http://localhost:'+PORT+'/api/todolist/'+id,
+            data: {fatto:fatto}
+        }).then(function(res){
+            return res.data;
+        }).catch(function(err){
+            return err;
+        });
+    }
+
 
 
     return{
 
         getTodos: getTodos,
         creaTodo: creaTodo,
-        deleteTodo: deleteTodo
+        deleteTodo: deleteTodo,
+        updateTodo:updateTodo
         
     }
 });
