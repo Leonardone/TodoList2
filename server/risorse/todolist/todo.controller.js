@@ -6,6 +6,7 @@ module.exports=(function(){
     var createTodo= function(req, res){
         var nuovo= new Todos(req.body);
         nuovo.save().then(function(data){
+           
             res.status(200).json(data);
         }).catch(function(err){
             res.status(500).json(err);

@@ -17,11 +17,38 @@ angular.module('app').service('TodoSrv', function($http){
             });
     }
 
+    var creaTodo= function(nuovo){
+        console.log(nuovo);
+        return $http({
+            method: 'POST',
+            url:'http://localhost:'+PORT+'/api/todolist',
+            data: nuovo //si riferisce al nuovo di sopra, quindi senza virgolette
+        }).then(function(res){
+            
+            return res.data;
+        }).catch(function(err){
+            return err;
+        })
+    }
+
+    var deleteTodo = function(id){
+        return $http({
+            method:"DELETE",
+            url:'http://localhost:'+PORT+'/api/todolist/'+id,
+        }).then(function(res){
+            return res.data;
+        }).catch(function(err){
+            return err;
+        });
+    }
+
 
 
     return{
 
-        getTodos: getTodos
+        getTodos: getTodos,
+        creaTodo: creaTodo,
+        deleteTodo: deleteTodo
         
     }
 });
