@@ -14,7 +14,8 @@ module.exports=function(app, express){
     app.use('/angular-animate', express.static(path.join(__dirname, "..", "..", "node_modules", "angular-animate")));
     app.use('/angular-aria', express.static(path.join(__dirname, "..", "..", "node_modules", "angular-aria")));
     app.use('/angular-material', express.static(path.join(__dirname, "..", "..", "node_modules", "angular-material")));
-
+    
+    app.use('/', express.static(path.join(__dirname, "..", "..", "client")));
     app.use('/js', express.static(path.join(__dirname, "..", "..", "client", "js")));
     app.use('/css', express.static(path.join(__dirname, "..", "..", "client", "css")));
     //rotta index

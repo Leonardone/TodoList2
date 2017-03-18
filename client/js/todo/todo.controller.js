@@ -1,4 +1,4 @@
-angular.module('app').controller('TodoCtrl', function($scope, TodoSrv){
+angular.module('app').controller('TodoCtrl', function($scope, TodoSrv, $state, $location){
 
 
 
@@ -13,7 +13,6 @@ TodoSrv.getTodos().then(function(data){
 });
 
 $scope.crea = function(){
-
     TodoSrv.creaTodo($scope.nuovo).then(function(data){
           $scope.nuovo= {};//pulisce la form
           return TodoSrv.getTodos()
@@ -22,6 +21,21 @@ $scope.crea = function(){
                 $scope.lista.forEach(function(el){
                 el.data=new Date(el.data);
             });
+            if($state.current.name=='/form'){
+                //  this.currentNavItem = "home";
+                // $scope.selectedItem='';
+                $state.go('/');
+
+               
+                // $location.path('/');
+                // var el=angular.element(document.querySelector('#home'));
+                // el.addClass('md-active');
+                //  var el2=angular.element(document.querySelector('#home'));
+                // el2.removeClass('md-unselected');
+
+            }
+            
+            
 
           })
        

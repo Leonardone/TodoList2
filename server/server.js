@@ -2,6 +2,10 @@ var express= require('express');
 var app= express();
 const PORT=3000;
 
+var livereload = require ('livereload');
+var server = livereload.createServer();
+server.watch(__dirname + "/../client");
+
 //connessione al database
 require('./config/database/database.js');
 
